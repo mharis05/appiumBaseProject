@@ -2,6 +2,7 @@ package appiumWork.functionalTests;
 
 import appiumWork.BaseTest;
 import appiumWork.screens.*;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 
@@ -17,7 +18,13 @@ public class InitialTests extends BaseTest {
     private ClockControlHoursScreen clockControlHoursScreen;
     private ClockControlMinutesScreen clockControlMinutesScreen;
     private WebViewScreen webViewScreen;
+    private DradAndDropScreen dradAndDropScreen;
 
+
+    @AfterMethod
+    public void backtoHome(){
+        driver.resetApp();
+    }
 
     /*
     Test-Case Description: Navigate to Custom Adapter Screen and long press
@@ -47,7 +54,6 @@ public class InitialTests extends BaseTest {
     */
     @Test
     public void clockControlSetTest(){
-        //System.out.println(driver.findElementsByAndroidUIAutomator("new UiSelector().class(\"android.widget.TextView\")").size());
 
         mainScreen = new MainScreen(driver);
         viewsScreen = new ViewsScreen(driver);
@@ -67,6 +73,10 @@ public class InitialTests extends BaseTest {
         waitForSeconds(10);
     }
 
+    /*
+    Test-Case Description: Navigate to WebView Screen and
+    validate that expected text is displayed
+    */
     @Test
     public void scrollIntoViewAndValidateWebviewContent(){
         mainScreen = new MainScreen(driver);
@@ -78,7 +88,20 @@ public class InitialTests extends BaseTest {
         viewsScreen.clickListItemWebView();
         waitForSeconds(25);
         webViewScreen.validateWebViewContent();
+    }
 
+    @Test
+    public void dragShapeToTargetLocation(){
+        mainScreen = new MainScreen(driver);
+        viewsScreen = new ViewsScreen(driver);
+        dradAndDropScreen = new DradAndDropScreen(driver);
+
+        mainScreen.clickListItemViews();
+        waitForSeconds(10);
+        viewsScreen.clickListItemDragAndDrop();
+        waitForSeconds(10);
+        dradAndDropScreen.moveShapeToTargetLocation();
+        waitForSeconds(30);
     }
 
 }

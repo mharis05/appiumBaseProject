@@ -20,6 +20,9 @@ public class ViewsScreen extends PageObject{
     @AndroidFindBy(uiAutomator = ViewsScreenLocators.listItemWebView)
     private AndroidElement listItemWebView;
 
+    @AndroidFindBy(xpath = ViewsScreenLocators.listItemDragAndDrop)
+    private AndroidElement listItemDragAndDrop;
+
 
     public ViewsScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
@@ -35,5 +38,9 @@ public class ViewsScreen extends PageObject{
 
     public void clickListItemWebView() {
         tap(listItemWebView);
+    }
+
+    public void clickListItemDragAndDrop(){
+        tap(listItemDragAndDrop);
     }
 }
