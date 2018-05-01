@@ -9,27 +9,25 @@ import org.openqa.selenium.By;
 
 import static appiumWork.steps.AndroidSteps.*;
 
-public class ClockControlScreen extends PageObject{
+public class ClockControlHoursScreen extends PageObject{
 
-    public ClockControlScreen(AndroidDriver<AndroidElement> driver){
+    public ClockControlHoursScreen(AndroidDriver<AndroidElement> driver){
         super(driver);
     }
 
-    
 
     @AndroidFindBy(xpath = ClockControlScreenLocators.clockHour12Element)
-    private AndroidElement clockHoursElement;
+    private AndroidElement clockHours12Element;
+
 
     public void clickOnHourValue(Integer hour){
-       // String hourElement = clockHoursElement.getAttribute("clickable");
-       // System.out.println("Content Desc is: " + hourElement);
-        tap(clockHoursElement);
+        tap(clockHours12Element);
     }
 
     public void dragToHour(Integer hour){
         AndroidElement targetHourElement = driver.findElement(By.xpath(ClockControlScreenLocators.clockHour12Element.
                 replaceAll("12",hour.toString())));
-        pressHoldAndMoveFromOneElementToAnother(clockHoursElement,targetHourElement);
+        pressHoldAndMoveFromOneElementToAnother(clockHours12Element,targetHourElement);
     }
 
 

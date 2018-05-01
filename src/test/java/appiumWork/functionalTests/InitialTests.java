@@ -14,7 +14,8 @@ public class InitialTests extends BaseTest {
     private ExpandableListsScreen expandableListsScreen;
     private CustomAdapterScreen customAdapterScreen;
     private DateWidgetsScreen dateWidgetsScreen;
-    private ClockControlScreen clockControlScreen;
+    private ClockControlHoursScreen clockControlHoursScreen;
+    private ClockControlMinutesScreen clockControlMinutesScreen;
 
     @Test
     public void navigateToCustomAdapterAndLongPressOnPropleNames(){
@@ -43,7 +44,8 @@ public class InitialTests extends BaseTest {
         mainScreen = new MainScreen(driver);
         viewsScreen = new ViewsScreen(driver);
         dateWidgetsScreen = new DateWidgetsScreen(driver);
-        clockControlScreen = new ClockControlScreen(driver);
+        clockControlHoursScreen = new ClockControlHoursScreen(driver);
+        clockControlMinutesScreen = new ClockControlMinutesScreen(driver);
 
         mainScreen.clickListItemViews();
         waitForSeconds(10);
@@ -51,8 +53,9 @@ public class InitialTests extends BaseTest {
         waitForSeconds(10);
         dateWidgetsScreen.clickListItemInline();
         waitForSeconds(5);
-        clockControlScreen.dragToHour(3);
-
-
+        clockControlHoursScreen.dragToHour(3);
+        waitForSeconds(5);
+        clockControlMinutesScreen.dragToMinute(45);
+        waitForSeconds(10);
     }
 }
