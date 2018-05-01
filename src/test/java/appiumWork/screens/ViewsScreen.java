@@ -5,6 +5,8 @@ import appiumWork.screens.locators.ViewsScreenLocators;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.aspectj.weaver.ast.And;
+
 import static appiumWork.steps.AndroidSteps.*;
 
 public class ViewsScreen extends PageObject{
@@ -14,6 +16,10 @@ public class ViewsScreen extends PageObject{
 
     @AndroidFindBy(uiAutomator = ViewsScreenLocators.listItemDateWidgets)
     private AndroidElement listItemDateWidgets;
+
+    @AndroidFindBy(uiAutomator = ViewsScreenLocators.listItemWebView)
+    private AndroidElement listItemWebView;
+
 
     public ViewsScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
@@ -25,5 +31,9 @@ public class ViewsScreen extends PageObject{
 
     public void clickListItemDateWidgets(){
         tap(listItemDateWidgets);
+    }
+
+    public void clickListItemWebView() {
+        tap(listItemWebView);
     }
 }

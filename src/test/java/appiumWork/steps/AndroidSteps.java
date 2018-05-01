@@ -23,7 +23,7 @@ public class AndroidSteps extends BaseTest{
     }
 
     public static void pressHoldAndMoveFromOneElementToAnother(AndroidElement sourceElement, AndroidElement targetElement) {
-        customAction.longPress(sourceElement).
+        customAction.press(sourceElement).
                 waitAction(Duration.ofSeconds(2)).
                 moveTo(targetElement).
                 release().perform();
