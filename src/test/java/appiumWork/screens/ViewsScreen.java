@@ -4,18 +4,26 @@ import appiumWork.PageObject;
 import appiumWork.screens.locators.ViewsScreenLocators;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.support.FindBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import static appiumWork.steps.AndroidSteps.*;
 
 public class ViewsScreen extends PageObject{
 
-    @FindBy(xpath = ViewsScreenLocators.listItemExpandableLists)
+    @AndroidFindBy(xpath = ViewsScreenLocators.listItemExpandableLists)
     private AndroidElement listItemExpandableLists;
+
+    @AndroidFindBy(uiAutomator = ViewsScreenLocators.listItemDateWidgets)
+    private AndroidElement listItemDateWidgets;
 
     public ViewsScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
     public void clickListItemExpandableLists() {
-        listItemExpandableLists.click();
+        tap(listItemExpandableLists);
+    }
+
+    public void clickListItemDateWidgets(){
+        tap(listItemDateWidgets);
     }
 }

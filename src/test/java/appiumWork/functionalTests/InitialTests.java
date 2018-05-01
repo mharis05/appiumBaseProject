@@ -1,13 +1,9 @@
 package appiumWork.functionalTests;
 
 import appiumWork.BaseTest;
-import appiumWork.screens.CustomAdapterScreen;
-import appiumWork.screens.ExpandableListsScreen;
-import appiumWork.screens.MainScreen;
-import appiumWork.screens.ViewsScreen;
+import appiumWork.screens.*;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
 
 import static appiumWork.util.AppiumWaits.waitForSeconds;
 
@@ -17,9 +13,11 @@ public class InitialTests extends BaseTest {
     private ViewsScreen viewsScreen;
     private ExpandableListsScreen expandableListsScreen;
     private CustomAdapterScreen customAdapterScreen;
+    private DateWidgetsScreen dateWidgetsScreen;
+    private ClockControlScreen clockControlScreen;
 
     @Test
-    public void performTestsForXPathAndId(){
+    public void navigateToCustomAdapterAndLongPressOnPropleNames(){
 
         mainScreen = new MainScreen(driver);
         viewsScreen = new ViewsScreen(driver);
@@ -35,24 +33,26 @@ public class InitialTests extends BaseTest {
         customAdapterScreen.tapAndHoldListItemPeopleNames(2);
         waitForSeconds(10);
 
-/*        driver.findElementByXPath("//android.widget.TextView[@text='Preference']").click();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        driver.findElementByXPath("//android.widget.TextView[@text='3. Preference dependencies']").click();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        driver.findElementById("android:id/checkbox").click();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        driver.findElementByXPath("(//android.widget.RelativeLayout)[2]").click();*/
-
     }
 
 
     @Test
-    public void performTestsForUIAutomator(){
+    public void clockControlSetTest(){
+        //System.out.println(driver.findElementsByAndroidUIAutomator("new UiSelector().class(\"android.widget.TextView\")").size());
 
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        driver.findElementByAndroidUIAutomator("text(\"Views\")").click();
+        mainScreen = new MainScreen(driver);
+        viewsScreen = new ViewsScreen(driver);
+        dateWidgetsScreen = new DateWidgetsScreen(driver);
+        clockControlScreen = new ClockControlScreen(driver);
 
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        System.out.println(driver.findElementsByAndroidUIAutomator("new UiSelector().class(\"android.widget.TextView\")").size());
+        mainScreen.clickListItemViews();
+        waitForSeconds(10);
+        viewsScreen.clickListItemDateWidgets();
+        waitForSeconds(10);
+        dateWidgetsScreen.clickListItemInline();
+        waitForSeconds(5);
+        clockControlScreen.dragToHour(3);
+
+
     }
 }

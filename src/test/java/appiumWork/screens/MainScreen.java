@@ -1,15 +1,14 @@
 package appiumWork.screens;
 
 import appiumWork.PageObject;
-import appiumWork.screens.locators.MainScreenLocators;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import static appiumWork.steps.AndroidSteps.*;
 
 public class MainScreen extends PageObject{
 
-    @FindBy(xpath = "//android.widget.TextView[@text='Views']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Views']")
     private AndroidElement listItemViews;
 
     public MainScreen(AndroidDriver<AndroidElement> driver){
@@ -17,7 +16,7 @@ public class MainScreen extends PageObject{
     }
 
     public void clickListItemViews(){
-        this.listItemViews.click();
+        tap(this.listItemViews);
     }
 
 

@@ -30,7 +30,7 @@ public class _DriverConfig {
     }*/
 
 /*    @Test
-    public void performTestsForXPathAndId(){
+    public void navigateToCustomAdapterAndLongPressOnPropleNames(){
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElementByXPath("//android.widget.TextView[@text='Preference']").click();
@@ -44,7 +44,7 @@ public class _DriverConfig {
     }
 
     @Test
-    public void performTestsForUIAutomator(){
+    public void clockControlSetTest(){
 
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         driver.findElementByAndroidUIAutomator("text(\"Views\")").click();

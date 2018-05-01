@@ -4,11 +4,12 @@ import appiumWork.PageObject;
 import appiumWork.screens.locators.ExpandableListsScreenLocators;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.support.FindBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import static appiumWork.steps.AndroidSteps.*;
 
 public class ExpandableListsScreen extends PageObject{
 
-    @FindBy(xpath = ExpandableListsScreenLocators.listItemCustomAdapter)
+    @AndroidFindBy(xpath = ExpandableListsScreenLocators.listItemCustomAdapter)
     private AndroidElement listItemCustomAdapter;
 
     public ExpandableListsScreen(AndroidDriver<AndroidElement> driver) {
@@ -16,6 +17,6 @@ public class ExpandableListsScreen extends PageObject{
     }
 
     public void clickCustomAdaperListItem(){
-        listItemCustomAdapter.click();
+        tap(listItemCustomAdapter);
     }
 }

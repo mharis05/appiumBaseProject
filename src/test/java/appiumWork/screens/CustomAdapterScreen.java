@@ -5,24 +5,20 @@ import appiumWork.screens.locators.CustomAdapterScreenLocators;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.support.FindBy;
-
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+import static appiumWork.steps.AndroidSteps.*;
 
 public class CustomAdapterScreen extends PageObject {
 
-    @FindBy(xpath = CustomAdapterScreenLocators.listItemPeopleNames)
+    @AndroidFindBy(xpath = CustomAdapterScreenLocators.listItemPeopleNames)
     private AndroidElement listItemPeopleNames;
-
-    TouchAction customAction = new TouchAction(driver);
 
     public CustomAdapterScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
     public void tapAndHoldListItemPeopleNames(Integer seconds) {
-        customAction.press(listItemPeopleNames)
-                .waitAction(Duration.ofSeconds(seconds)).release().perform();
+        pressAndHoldElement(listItemPeopleNames,2);
     }
 }
