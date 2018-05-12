@@ -1,7 +1,7 @@
-package appiumWork.screens;
+package appiumWork.screens.avdApp;
 
 import appiumWork.PageObject;
-import appiumWork.screens.locators.ClockControlScreenLocators;
+import appiumWork.screens.avdApp.locators.ClockControlScreenLocators;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;

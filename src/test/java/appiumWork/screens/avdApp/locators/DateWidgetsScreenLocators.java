@@ -1,4 +1,4 @@
-package appiumWork.screens.locators;
+package appiumWork.screens.avdApp.locators;
 
 public interface DateWidgetsScreenLocators {
 

@@ -1,8 +1,8 @@
-package appiumWork.screens;
+package appiumWork.screens.avdApp;
 
 import appiumWork.AppiumAssertions;
 import appiumWork.PageObject;
-import appiumWork.screens.locators.WebViewLocators;
+import appiumWork.screens.avdApp.locators.WebViewLocators;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;

@@ -1,4 +1,4 @@
-package appiumWork.screens;
+package appiumWork.screens.avdApp;
 
 import appiumWork.PageObject;
 import io.appium.java_client.android.AndroidDriver;

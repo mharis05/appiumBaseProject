@@ -1,7 +1,7 @@
 package appiumWork.functionalTests;
 
 import appiumWork.BaseTest;
-import appiumWork.screens.*;
+import appiumWork.screens.avdApp.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 

@@ -1,12 +1,11 @@
-package appiumWork.screens;
+package appiumWork.screens.avdApp;
 
 import appiumWork.PageObject;
-import appiumWork.screens.locators.CustomAdapterScreenLocators;
-import io.appium.java_client.TouchAction;
+import appiumWork.screens.avdApp.locators.CustomAdapterScreenLocators;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import java.time.Duration;
+
 import static appiumWork.steps.AndroidSteps.*;
 
 public class CustomAdapterScreen extends PageObject {

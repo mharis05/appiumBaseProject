@@ -12,21 +12,52 @@ import java.net.URL;
 
 public class AndroidController {
 
+    private AndroidController() {
+
+    }
+
+    private static DesiredCapabilities capabilities = new DesiredCapabilities();
+    private static AndroidDriver<AndroidElement> driver;
 
 
-    public AndroidDriver<AndroidElement> prepareAndroidForAppium(String appName) throws MalformedURLException {
+    public static AndroidDriver<AndroidElement> prepareAndroidForAppium(boolean isAvdApp, String appName) {
+        //mandatory capabilities
+        if (driver == null) {
+            setCommonCapabilities();
 
+            if (isAvdApp) {
+                setCapabilitiesForAvdApp(appName);
+            } else {
+                setCapabilitiesForRealApp();
+            }
+            try {
+                driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            return driver;
+        } else return driver;
+
+    }
+
+    private static void setCapabilitiesForAvdApp(String appName) {
         File appDir = new File("/home/haris/AppiumWork/AppiumProject/apps");
         File app = new File(appDir, appName);
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        //capabilities.setCapability("device","avd2");
-
-        //mandatory capabilities
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "avd2");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-
         //other caps
         capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-        return new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+
+    }
+
+    private static void setCapabilitiesForRealApp() {
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "device");
+        capabilities.setCapability("appPackage", "ae.propertyfinder.propertyfinder");
+        capabilities.setCapability("appActivity", "ae.propertyfinder.consumer.ui.activity.ConfigurationActivity");
+
+    }
+
+    private static void setCommonCapabilities() {
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
     }
 }
