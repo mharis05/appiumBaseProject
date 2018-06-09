@@ -9,10 +9,10 @@ import java.net.MalformedURLException;
 
 public class PageObject {
 
-    protected AndroidDriver<AndroidElement> driver;
+    protected AndroidDriver<AndroidElement> driver = BaseTest.driver;
 
     public PageObject(AndroidDriver<AndroidElement> driver) {
-        this.driver = AndroidController.prepareAndroidForAppium(false,"ApiDemos-debug.apk");
+        driver = BaseTest.driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 }
